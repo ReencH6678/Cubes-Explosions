@@ -44,7 +44,7 @@ public class Spawner : MonoBehaviour
             }
         }
 
-        Destroy(cube);
+        Destroy(cube.gameObject);
 
         foreach (GameObject shard in createdShards)
         {
