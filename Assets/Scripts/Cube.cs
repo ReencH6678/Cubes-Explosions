@@ -11,13 +11,10 @@ public class Cube : MonoBehaviour
 
     private float _chanceDivisor = 2;
 
-    private MeshRenderer _meshRenderer;
-
     public BoxCollider Collider { get; private set; }
 
     private void Awake()
     {
-        _meshRenderer = GetComponent<MeshRenderer>();
         Collider = GetComponent<BoxCollider>();
     }
 
@@ -29,14 +26,5 @@ public class Cube : MonoBehaviour
     public void ReduceCrackCance()
     {
         _crackChance /= _chanceDivisor;
-    }
-
-    public void ChangeColor()
-    {
-        float minHue = 0, maxHue = 1;
-        float minSaturation = 0, maxSaturation = 1;
-        float minValue = 0, maxValue = 1;
-
-        _meshRenderer.material.color = Random.ColorHSV(minHue, maxHue, minSaturation, maxSaturation, minValue, maxValue);
     }
 }

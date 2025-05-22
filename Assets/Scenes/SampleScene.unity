@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 286537632}
   - component: {fileID: 286537631}
   - component: {fileID: 286537630}
+  - component: {fileID: 286537636}
   - component: {fileID: 286537635}
   m_Layer: 0
   m_Name: Cube
@@ -208,8 +209,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f97a16c69b01ef54ebe35457b09f55d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cubeExploder: {fileID: 0}
-  _crackChance: 100
 --- !u!65 &286537631
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -323,6 +322,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &286537636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286537629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a41841df9ae2744b2652fcb850206d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &323376670
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,6 +347,7 @@ GameObject:
   - component: {fileID: 323376674}
   - component: {fileID: 323376673}
   - component: {fileID: 323376672}
+  - component: {fileID: 323376677}
   - component: {fileID: 323376671}
   m_Layer: 0
   m_Name: Cube (2)
@@ -383,8 +395,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f97a16c69b01ef54ebe35457b09f55d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cubeExploder: {fileID: 0}
-  _crackChance: 100
 --- !u!65 &323376673
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -471,6 +481,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &323376677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323376670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a41841df9ae2744b2652fcb850206d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &363951808
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,6 +1018,7 @@ GameObject:
   - component: {fileID: 1121121099}
   - component: {fileID: 1121121098}
   - component: {fileID: 1121121097}
+  - component: {fileID: 1121121102}
   - component: {fileID: 1121121096}
   m_Layer: 0
   m_Name: Cube (1)
@@ -1043,8 +1066,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f97a16c69b01ef54ebe35457b09f55d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cubeExploder: {fileID: 0}
-  _crackChance: 100
 --- !u!65 &1121121098
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1131,6 +1152,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1121121102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121121095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a41841df9ae2744b2652fcb850206d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1478286969
 GameObject:
   m_ObjectHideFlags: 0

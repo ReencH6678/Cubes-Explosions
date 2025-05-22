@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class CubeExploder : MonoBehaviour
+public class ClickHandler : MonoBehaviour
 {
-    public event UnityAction<Cube> Exloded;
+    public event UnityAction<Cube> Clicked;
     
     [SerializeField] private Camera _camera;
 
@@ -22,7 +22,7 @@ public class CubeExploder : MonoBehaviour
 
                 if (cube != null)
                 {
-                    Exloded.Invoke(cube);
+                    Clicked.Invoke(cube);
                 }
             }
         }

@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CubeExploder))]
+[RequireComponent(typeof(ClickHandler))]
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private float _explosionsForce;
     [SerializeField] private float _explosionsRadius;
 
-    [SerializeField] private CubeExploder _exploder;
+    [SerializeField] private ClickHandler _exploder;
 
     private int _maxShardsCount = 6;
     private int _minShardsCount = 2;
@@ -16,12 +16,12 @@ public class Spawner : MonoBehaviour
 
     private void OnEnable()
     {
-        _exploder.Exloded += CreateShards;
+        _exploder.Clicked += CreateShards;
     }
 
     private void OnDisable()
     {
-        _exploder.Exloded -= CreateShards;
+        _exploder.Clicked -= CreateShards;
     }
 
     public void CreateShards(Cube cube)
@@ -35,22 +35,17 @@ public class Spawner : MonoBehaviour
         {
             for (int i = 0; i < shardsCount; i++)
             {
-                GameObject shard = Instantiate(cube.gameObject, GetRandomPointInsideCube(collider), Quaternion.identity);
+                Cube shard = Instantiate(cube.gameObject, GetRandomPointInsideCube(collider), Quaternion.identity).GetComponent<Cube>();
 
                 shard.transform.localScale /= _scaleDivisor;
 
-                shard.GetComponent<Cube>().ChangeColor();
-                shard.GetComponent<Cube>().ReduceCrackCance();
+                shard.ReduceCrackCance();
+                shard.GetComponent<Rigidbody>().AddExplosionForce(_explosionsForce, transform.position, _explosionsRadius);
+                shard.GetComponent<ColorChanger>().ChangeColor();
             }
         }
 
         Destroy(cube.gameObject);
-
-        foreach (GameObject shard in createdShards)
-        {
-            shard.GetComponent<Rigidbody>().AddExplosionForce(_explosionsForce, transform.position, _explosionsRadius);
-            shard.GetComponent<Cube>().ChangeColor();
-        }
     }
 
     private Vector3 GetRandomPointInsideCube(BoxCollider collider)
