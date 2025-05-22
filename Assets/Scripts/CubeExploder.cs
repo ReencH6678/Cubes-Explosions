@@ -1,7 +1,10 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CubeExploder : MonoBehaviour
 {
+    public event UnityAction<Cube> Exloded;
+    
     [SerializeField] private Camera _camera;
 
     private Ray _ray;
@@ -9,15 +12,18 @@ public class CubeExploder : MonoBehaviour
 
     private void Update()
     {
-        if (_camera != null)
-            _ray = _camera.ScreenPointToRay(Input.mousePosition);
+        _ray = _camera.ScreenPointToRay(Input.mousePosition);
 
         if (Input.GetMouseButtonDown(0))
         {
             if (Physics.Raycast(_ray, out _hit, Mathf.Infinity))
             {
-                if (_hit.collider.gameObject.GetComponent<Cube>() != null)
-                    _hit.collider.gameObject.GetComponent<Cube>().CreateShards();
+                Cube cube = _hit.collider.gameObject.GetComponent<Cube>();
+
+                if (cube != null)
+                {
+                    Exloded.Invoke(cube);
+                }
             }
         }
     }

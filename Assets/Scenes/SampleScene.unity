@@ -208,8 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f97a16c69b01ef54ebe35457b09f55d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionsForce: 40
-  _explosionsRadius: 400
+  _cubeExploder: {fileID: 0}
   _crackChance: 100
 --- !u!65 &286537631
 BoxCollider:
@@ -384,8 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f97a16c69b01ef54ebe35457b09f55d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionsForce: 40
-  _explosionsRadius: 400
+  _cubeExploder: {fileID: 0}
   _crackChance: 100
 --- !u!65 &323376673
 BoxCollider:
@@ -483,6 +481,7 @@ GameObject:
   m_Component:
   - component: {fileID: 363951810}
   - component: {fileID: 363951809}
+  - component: {fileID: 363951811}
   m_Layer: 0
   m_Name: CubeExploder
   m_TagString: Untagged
@@ -502,7 +501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43a794f57073b4947be460313880c2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 0}
+  _camera: {fileID: 963194227}
 --- !u!4 &363951810
 Transform:
   m_ObjectHideFlags: 0
@@ -518,6 +517,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &363951811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363951808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d79cb41fb58ad8a4db87cfab7f82beec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _explosionsForce: 100
+  _explosionsRadius: 300
+  _exploder: {fileID: 363951809}
 --- !u!1 &379775995
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,7 +902,6 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
-  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -970,19 +983,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &963194229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43a794f57073b4947be460313880c2bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _camera: {fileID: 963194227}
 --- !u!1 &1121121095
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,8 +1043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f97a16c69b01ef54ebe35457b09f55d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionsForce: 40
-  _explosionsRadius: 400
+  _cubeExploder: {fileID: 0}
   _crackChance: 100
 --- !u!65 &1121121098
 BoxCollider:
@@ -1190,12 +1189,12 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 963194228}
+  - {fileID: 363951810}
   - {fileID: 705507995}
   - {fileID: 286537634}
   - {fileID: 1121121101}
   - {fileID: 323376676}
   - {fileID: 919511485}
-  - {fileID: 363951810}
   - {fileID: 379775997}
   - {fileID: 687015820}
   - {fileID: 281090304}
