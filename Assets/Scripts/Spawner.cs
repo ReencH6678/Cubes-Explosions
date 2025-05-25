@@ -4,10 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(ClickHandler))]
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private float _explosionsForce;
-    [SerializeField] private float _explosionsRadius;
-
-    [SerializeField] private ClickHandler _exploder;
+    [SerializeField] private ClickHandler _clickHandler;
+    [SerializeField] private Exploder _exploder;
 
     private int _maxShardsCount = 6;
     private int _minShardsCount = 2;
@@ -16,17 +14,17 @@ public class Spawner : MonoBehaviour
 
     private void OnEnable()
     {
-        _exploder.Clicked += CreateShards;
+        _clickHandler.Clicked += CreateShards;
     }
 
     private void OnDisable()
     {
-        _exploder.Clicked -= CreateShards;
+        _clickHandler.Clicked -= CreateShards;
     }
 
     public void CreateShards(Cube cube)
     {
-        List<GameObject> createdShards = new();
+        List<Rigidbody> createdShards = new();
         int shardsCount = Random.Range(_minShardsCount, _maxShardsCount + 1);
 
         BoxCollider collider = cube.GetComponent<BoxCollider>();
@@ -35,15 +33,19 @@ public class Spawner : MonoBehaviour
         {
             for (int i = 0; i < shardsCount; i++)
             {
-                Cube shard = Instantiate(cube.gameObject, GetRandomPointInsideCube(collider), Quaternion.identity).GetComponent<Cube>();
+                Instantiate(cube.gameObject, GetRandomPointInsideCube(collider), Quaternion.identity).TryGetComponent<Cube>(out Cube shard);
 
                 shard.transform.localScale /= _scaleDivisor;
 
                 shard.ReduceCrackCance();
-                shard.GetComponent<Rigidbody>().AddExplosionForce(_explosionsForce, transform.position, _explosionsRadius);
                 shard.GetComponent<ColorChanger>().ChangeColor();
+
+                if (TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
+                    createdShards.Add(rigidbody);
             }
         }
+
+        _exploder.Explode(createdShards, cube.transform.position);
 
         Destroy(cube.gameObject);
     }

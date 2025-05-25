@@ -2,13 +2,13 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class ClickHandler : MonoBehaviour
-{
-    public event UnityAction<Cube> Clicked;
-    
+{  
     [SerializeField] private Camera _camera;
 
     private Ray _ray;
     private RaycastHit _hit;
+
+    public event UnityAction<Cube> Clicked;
 
     private void Update()
     {
