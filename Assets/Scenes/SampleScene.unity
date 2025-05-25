@@ -503,6 +503,7 @@ GameObject:
   m_Component:
   - component: {fileID: 363951810}
   - component: {fileID: 363951809}
+  - component: {fileID: 363951812}
   - component: {fileID: 363951811}
   m_Layer: 0
   m_Name: CubeExploder
@@ -551,9 +552,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d79cb41fb58ad8a4db87cfab7f82beec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _clickHandler: {fileID: 363951809}
+  _exploder: {fileID: 363951812}
+--- !u!114 &363951812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363951808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2414fdfe68dc3c4cad0e540cbdd7d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _explosionsForce: 100
-  _explosionsRadius: 300
-  _exploder: {fileID: 363951809}
+  _explosionsRadius: 200
 --- !u!1 &379775995
 GameObject:
   m_ObjectHideFlags: 0
