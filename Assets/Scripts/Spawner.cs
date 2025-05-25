@@ -42,8 +42,12 @@ public class Spawner : MonoBehaviour
                 createdShards.Add(shard.Rigidbody);
             }
         }
+        else
+        {
+            _exploder.Explode(cube.transform.position);
+        }
 
-        _exploder.Explode(createdShards, cube.transform.position);
+        _exploder.ShakeShards(createdShards, cube.transform.position);
 
         Destroy(cube.gameObject);
     }
