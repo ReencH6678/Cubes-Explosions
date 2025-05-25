@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(MeshRenderer), typeof(BoxCollider))]
+[RequireComponent(typeof(Rigidbody), typeof(BoxCollider), typeof(ColorChanger))]
 
 public class Cube : MonoBehaviour
 {
@@ -12,10 +12,14 @@ public class Cube : MonoBehaviour
     private float _chanceDivisor = 2;
 
     public BoxCollider Collider { get; private set; }
+    public Rigidbody Rigidbody { get; private set; }
+    public ColorChanger ColorChanger { get; private set; }
 
     private void Awake()
     {
         Collider = GetComponent<BoxCollider>();
+        Rigidbody = GetComponent<Rigidbody>();
+        ColorChanger = GetComponent<ColorChanger>();
     }
 
     public bool IsCracked()

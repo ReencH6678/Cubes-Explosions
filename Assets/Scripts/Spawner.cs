@@ -33,15 +33,13 @@ public class Spawner : MonoBehaviour
         {
             for (int i = 0; i < shardsCount; i++)
             {
-                Instantiate(cube.gameObject, GetRandomPointInsideCube(collider), Quaternion.identity).TryGetComponent<Cube>(out Cube shard);
+                Instantiate(cube, GetRandomPointInsideCube(collider), Quaternion.identity).TryGetComponent<Cube>(out Cube shard);
 
                 shard.transform.localScale /= _scaleDivisor;
 
                 shard.ReduceCrackCance();
-                shard.GetComponent<ColorChanger>().ChangeColor();
-
-                if (TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
-                    createdShards.Add(rigidbody);
+                shard.ColorChanger.ChangeColor();
+                createdShards.Add(shard.Rigidbody);
             }
         }
 
